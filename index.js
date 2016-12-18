@@ -1,28 +1,15 @@
 #!/usr/bin/env node
 'use strict';
 
-var chalk       = require('chalk');
-var clear       = require('clear');
-var CLI         = require('clui');
-var Spinner     = CLI.Spinner;
-var fs          = require('fs');
-var touch       = require('touch');
-var path        = require('path');
-var parseArgs   = require('minimist');
-var async       = require('async');
-var _           = require('lodash');
-
-// var files       = require('./lib/files');
-
-var exec        = require('child_process').exec;
-
-
-clear();
+const fs          = require('fs');
+const touch       = require('touch');
+const path        = require('path');
+const parseArgs   = require('minimist');
+const async       = require('async');
+const _           = require('lodash');
+const exec        = require('child_process').exec;
 
 const argv = parseArgs(process.argv.slice(2));
-console.log({ argv });
-
-
 const checkDirectory = (dir, cb) => {
     fs.stat(dir, function(err, stats) {
         if (err && err.errno === -2) {
@@ -34,12 +21,12 @@ const checkDirectory = (dir, cb) => {
 }
 
 const createComponent = (name, cb) => {
-    var files = [
+    const files = [
         `${name}.jsx`,
         `${name}.scss`,
     ];
 
-    var directory = name;
+    const directory = name;
     checkDirectory(directory, (err) => {
         if (err) return console.log(err);
         async.each(files, (file, _cb) => {
@@ -53,9 +40,6 @@ const createComponent = (name, cb) => {
 if (argv._[0] === 'create') {
     createComponent(argv._[1], (err, files) => {
         if (err) return console.log(err);
-
-        console.log({ files });
-        
         async.each(files, (file, cb) => {
             if (!_.includes(file, '.jsx')) return cb(null);
             fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
@@ -65,7 +49,7 @@ if (argv._[0] === 'create') {
             })
         }, (err) => {
             if (err) return console.log(err);
-            console.log('success');
+            console.log(`Sucessfully created files at /${argv._[1]}`);
         })
     });
 }

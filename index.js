@@ -7,7 +7,6 @@ const path        = require('path');
 const parseArgs   = require('minimist');
 const async       = require('async');
 const _           = require('lodash');
-const exec        = require('child_process').exec;
 
 const argv = parseArgs(process.argv.slice(2));
 const checkDirectory = (dir, cb) => {

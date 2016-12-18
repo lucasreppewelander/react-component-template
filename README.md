@@ -1,14 +1,14 @@
-# React Component Template
+# React Modules Template
 > Easy create new react modules with this tool
 
 ## Installation
 ```
-npm install -g react-component-template
+npm install -g react-modules-template
 ```
 
 ## Usage
 ```
-rct create Login
+react-module create Login
 ```
 
 This will generate a Folder named Login relative to your current path

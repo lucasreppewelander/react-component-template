@@ -1,11 +1,11 @@
 {
-  "name": "react-component-template",
+  "name": "react-modules-template",
   "version": "1.0.0",
   "description": "A small react component creator",
   "main": "index.js",
   "preferGlobal": "true",
   "bin": {
-    "rct": "index.js"
+    "react-module": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

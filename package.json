@@ -1,6 +1,6 @@
 {
   "name": "react-modules-template",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A small react component creator",
   "main": "index.js",
   "preferGlobal": "true",
@@ -21,5 +21,12 @@
     "lodash": "^4.17.2",
     "minimist": "^1.2.0",
     "touch": "^1.0.0"
-  }
+  },
+  "keywords": [
+    "react",
+    "reactjs",
+    "react module",
+    "react module templates",
+    "react templates"
+  ]
 }

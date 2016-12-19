@@ -36,19 +36,17 @@ const createComponent = (name, cb) => {
     })
 }
 
-if (argv._[0] === 'create') {
-    createComponent(argv._[1], (err, files) => {
-        if (err) return console.log(err);
-        async.each(files, (file, cb) => {
-            if (!_.includes(file, '.jsx')) return cb(null);
-            fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
-                if (e) return cb(err);
-                contents = contents.replace(/__tpl_name__/g, argv._[1]);
-                fs.appendFile(path.join(process.cwd(), `${argv._[1]}/${argv._[1]}.jsx`), contents, cb);
-            })
-        }, (err) => {
-            if (err) return console.log(err);
-            console.log(`Sucessfully created files at /${argv._[1]}`);
+createComponent(argv._[0], (err, files) => {
+    if (err) return console.log(err);
+    async.each(files, (file, cb) => {
+        if (!_.includes(file, '.jsx')) return cb(null);
+        fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
+            if (e) return cb(err);
+            contents = contents.replace(/__tpl_name__/g, argv._[0]);
+            fs.appendFile(path.join(process.cwd(), `${argv._[0]}/${argv._[0]}.jsx`), contents, cb);
         })
-    });
-}
+    }, (err) => {
+        if (err) return console.log(err);
+        console.log(`Sucessfully created files at /${argv._[0]}`);
+    })
+});

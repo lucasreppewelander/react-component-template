@@ -8,7 +8,7 @@ npm install -g react-modules-template
 
 ## Usage
 ```
-react-module create Login
+react-module Login
 ```
 
 This will generate a Folder named Login relative to your current path

@@ -1,6 +1,6 @@
 {
   "name": "react-modules-template",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A small react component creator",
   "main": "index.js",
   "preferGlobal": "true",

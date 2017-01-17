@@ -23,6 +23,7 @@ const createComponent = (name, cb) => {
     const files = [
         `${name}.jsx`,
         `${name}.scss`,
+        `${name}.test.js`
     ];
 
     const directory = name;
@@ -39,12 +40,20 @@ const createComponent = (name, cb) => {
 createComponent(argv._[0], (err, files) => {
     if (err) return console.log(err);
     async.each(files, (file, cb) => {
-        if (!_.includes(file, '.jsx')) return cb(null);
-        fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
-            if (e) return cb(err);
-            contents = contents.replace(/__tpl_name__/g, argv._[0]);
-            fs.appendFile(path.join(process.cwd(), `${argv._[0]}/${argv._[0]}.jsx`), contents, cb);
-        })
+        if (_.includes(file, '.scss')) return cb(null);
+        if (_.includes(file, '.test.js')) {
+            fs.readFile(path.join(__dirname, 'lib/files/test.jsx'), 'utf8', (e, contents) => {
+                if (e) return cb(err);
+                contents = contents.replace(/__tpl_name__/g, argv._[0]);
+                fs.appendFile(path.join(process.cwd(), `${argv._[0]}/${argv._[0]}.test.js`), contents, cb);
+            })
+        } else {
+            fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
+                if (e) return cb(err);
+                contents = contents.replace(/__tpl_name__/g, argv._[0]);
+                fs.appendFile(path.join(process.cwd(), `${argv._[0]}/${argv._[0]}.jsx`), contents, cb);
+            })
+        }
     }, (err) => {
         if (err) return console.log(err);
         console.log(`Sucessfully created files at /${argv._[0]}`);

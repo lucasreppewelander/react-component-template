@@ -15,7 +15,14 @@ This will generate a Folder named Login relative to your current path
 and three files: an empty Login.scss and another file named Login.jsx filled with
 starter code for exporting a module with custom css.
 
-### Changelog
+### Configuration
+```
+react-module --init
+```
+
+This will step you through some configuration questions to make this package create files according to your project, in this init you can specify javascript extension, css extension and wheter or not to use ES6 classes.
+
+## Changelog
 
 #### v1.2.0
 Added a jest .js test file, the starter code only checks that it can be rendered, but it can be fille with more!

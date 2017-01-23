@@ -12,10 +12,10 @@ const inquirer    = require('inquirer');
 const config      = '.react_module';
 const setup       = require('./lib/setup.jsx');
 let customPaths = {
-    path: '',
+    path: 'src',
     es6: true,
-    extension: '',
-    css: '',
+    extension: 'js',
+    css: 'scss',
 }
 
 const argv = parseArgs(process.argv.slice(2));
@@ -64,8 +64,8 @@ if (argv.init) {
 
             contents = contents.replace(/__tpl_cfg_path__/g, answer.path);
             contents = contents.replace(/__tpl_cfg_es6__/g, es6);
-            contents = contents.replace(/__tpl_cfg_css__/g, answer.extension);
-            contents = contents.replace(/__tpl_cfg_extension__/g, answer.css);
+            contents = contents.replace(/__tpl_cfg_css__/g, answer.css);
+            contents = contents.replace(/__tpl_cfg_extension__/g, answer.extension);
 
             touch(path.join(process.cwd(), '.react_module'), e => {
                 if (e) return console.error(e);
@@ -85,6 +85,7 @@ if (argv.init) {
             if (err) return console.log(err);
 
             async.each(files, (file, cb) => {
+
                 if (_.includes(file, `.${cfg.css}`)) return cb(null);
 
                 if (_.includes(file, `.test.js`)) {

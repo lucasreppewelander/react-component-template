@@ -80,7 +80,6 @@ if (argv.init) {
 } else {
     fs.readFile(path.join(process.cwd(), config), 'utf8', (error, contents) => {
         const cfg = configCheck(error, contents);
-        console.log({cfg});
 
         createComponent(argv._[0], cfg, (err, files) => {
             if (err) return console.log(err);
@@ -94,7 +93,7 @@ if (argv.init) {
 
                         contents = contents.replace(/__tpl_name__/g, argv._[0]);
 
-                        fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/${argv._[0]}.test.${cfg.extension}`), contents, cb);
+                        fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/${argv._[0]}.test.js`), contents, cb);
                     })
                 } else {
 

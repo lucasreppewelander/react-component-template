@@ -20,6 +20,10 @@ starter code for exporting a module with custom css.
 #### v1.2.0
 Added a jest .js test file, the starter code only checks that it can be rendered, but it can be fille with more!
 
+#### v2.0.0
+Added functionality for a configuration file, added the --init flag when running to create the config file.
+Made it easier to customise to your own coding style and file structure.
+
 ## Output
 ```
 ./Login

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './__tpl_name__.scss';
+import './__tpl_name__.__tpl_cfg_css__';
 
 class __tpl_name__ extends Component {
 

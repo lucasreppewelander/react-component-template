@@ -14,14 +14,14 @@ const cfg = {
         {
             name: 'css',
             type: 'rawlist',
-            message: 'Do you use any pre processing for your css?'
-            choices: ['.js', '.jsx']
+            message: 'Do you use any pre processing for your css?',
+            choices: ['css', 'scss']
         },
         {
             name: 'extension',
             type: 'rawlist',
             message: 'What extension do you use for your javascript files?',
-            choices: ['.js', '.jsx']
+            choices: ['js', 'jsx']
         }
     ]
 }

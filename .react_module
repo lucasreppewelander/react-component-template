@@ -1,4 +1,6 @@
 {
     "path": "tester",
-    "es6": false
+    "es6": false,
+    "extension": "jsx",
+    "css": "css"
 }

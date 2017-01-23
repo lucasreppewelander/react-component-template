@@ -34,7 +34,7 @@ const createComponent = (name, cfg, cb) => {
     const files = [
         `${name}.${cfg.extension}`,
         `${name}.${cfg.css}`,
-        `${name}.test.${cfg.extension}`
+        `${name}.test.js`
     ];
 
     const directory = name;
@@ -87,7 +87,7 @@ if (argv.init) {
             async.each(files, (file, cb) => {
                 if (_.includes(file, `.${cfg.css}`)) return cb(null);
 
-                if (_.includes(file, `.test.${cfg.extension}`)) {
+                if (_.includes(file, `.test.js`)) {
                     fs.readFile(path.join(__dirname, 'lib/files/test.jsx'), 'utf8', (e, contents) => {
                         if (e) return cb(err);
 

@@ -32,7 +32,7 @@ const checkDirectory = (dir, paths, cb) => {
 
 const createComponent = (name, cfg, cb) => {
     const files = [
-        `${name}.${cfg.extension}`,
+        `index.${cfg.extension}`,
         `${name}.${cfg.css}`,
         `${name}.test.js`
     ];

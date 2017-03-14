@@ -24,17 +24,21 @@ This will step you through some configuration questions to make this package cre
 
 ## Changelog
 
-#### v1.2.0
-Added a jest .js test file, the starter code only checks that it can be rendered, but it can be fille with more!
+#### v3.0.0
+Changed the main file to be named index.extension instead of componentName.extension, because I hated that I had to import it like this `import component from '/component/component'`.
+Now I can only import it like this: `import component from '/component'`
 
 #### v2.0.0
 Added functionality for a configuration file, added the --init flag when running to create the config file.
 Made it easier to customise to your own coding style and file structure.
 
+#### v1.2.0
+Added a jest .js test file, the starter code only checks that it can be rendered, but it can be fille with more!
+
 ## Output
 ```
 ./Login
-    --- Login.jsx
+    --- index.jsx
     --- Login.test.js
     --- Login.scss
 ```

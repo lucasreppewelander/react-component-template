@@ -11,3 +11,5 @@ var __tpl_name__ = React.createClass({
         return <h2>Current module: __tpl_name__</h2>;
     }
 });
+
+export default __tpl_name__;

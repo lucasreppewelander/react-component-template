@@ -99,14 +99,25 @@ if (argv.init) {
                 } else {
 
                     if (cfg.es6) {
-                        fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
-                            if (e) return cb(err);
+                    	if (argv.pure) {
+                    		fs.readFile(path.join(__dirname, 'lib/files/pure-component.jsx'), 'utf8', (e, contents) => {
+	                            if (e) return cb(err);
 
-                            contents = contents.replace(/__tpl_name__/g, argv._[0]);
-                            contents = contents.replace(/__tpl_cfg_css__/g, cfg.css);
+	                            contents = contents.replace(/__tpl_name__/g, argv._[0]);
+	                            contents = contents.replace(/__tpl_cfg_css__/g, cfg.css);
 
-                            fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/${argv._[0]}.${cfg.extension}`), contents, cb);
-                        })
+	                            fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/index.${cfg.extension}`), contents, cb);
+	                        })
+                    	} else {
+                    		fs.readFile(path.join(__dirname, 'lib/files/component.jsx'), 'utf8', (e, contents) => {
+	                            if (e) return cb(err);
+
+	                            contents = contents.replace(/__tpl_name__/g, argv._[0]);
+	                            contents = contents.replace(/__tpl_cfg_css__/g, cfg.css);
+
+	                            fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/index.${cfg.extension}`), contents, cb);
+	                        })
+                    	}
                     } else {
                         fs.readFile(path.join(__dirname, 'lib/files/functions-component.jsx'), 'utf8', (e, contents) => {
                             if (e) return cb(err);
@@ -114,7 +125,7 @@ if (argv.init) {
                             contents = contents.replace(/__tpl_name__/g, argv._[0]);
                             contents = contents.replace(/__tpl_cfg_css__/g, cfg.css);
 
-                            fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/${argv._[0]}.${cfg.extension}`), contents, cb);
+                            fs.appendFile(path.join(process.cwd(), cfg.path, `${argv._[0]}/index.${cfg.extension}`), contents, cb);
                         })
                     }
                 }

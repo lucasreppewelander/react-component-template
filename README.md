@@ -41,11 +41,11 @@ Changed the main file to be named index.extension instead of componentName.exten
 Now I can only import it like this: `import component from '/component'`
 
 #### v2.0.0
-Added functionality for a configuration file, added the --init flag when running to create the config file.
+Added functionality for a configuration file, added the `--init` flag when running to create the config file.
 Made it easier to customise to your own coding style and file structure.
 
 #### v1.2.0
-Added a jest .js test file, the starter code only checks that it can be rendered, but it can be fille with more!
+Added a jest .js test file, the starter code only checks that it can be rendered, but it can be filled with more!
 
 ## Output
 ```
